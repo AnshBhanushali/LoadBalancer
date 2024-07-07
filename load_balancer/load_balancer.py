@@ -25,4 +25,10 @@ def load_balancer(path):
         response = requests.put(backend_url, json=request.json)
     elif request.method == 'DELETE':
         response = requests.delete(backend_url)
-        
+
+    current_server = (current_server + 1) % len(backend_servers)
+
+    return (response.content, response.status_code, response.headers.items())
+
+if __name__ == '__main__':
+    app.run(port=5000)
