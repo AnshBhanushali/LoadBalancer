@@ -11,3 +11,6 @@ def handle_request(path):
         "args": request.args,
         "json": request.json
     })
+
+if __name__ == '__main__':
+    app.run(port=5000)
