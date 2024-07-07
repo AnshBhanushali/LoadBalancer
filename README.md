@@ -1,3 +1,5 @@
+# Load Balancer
+
 A load balancer is a critical component in networking and web infrastructure that distributes incoming network traffic across multiple servers. This ensures no single server becomes overwhelmed, thus enhancing the availability and reliability of applications. Here are key functions and benefits of a load balancer:
 
 ### Functions of a Load Balancer:
