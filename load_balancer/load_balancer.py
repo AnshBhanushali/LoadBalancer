@@ -3,7 +3,6 @@ import requests
 
 app = Flask(__name__)
 
-# These are the backend server the project would work on
 backend_servers = [
     'http://localhost:5001',
     'http://localhost:5002'
@@ -11,12 +10,11 @@ backend_servers = [
 
 current_server = 0
 
-@app('/<path:path>', methods = ['GET', 'POST', 'PUT', 'DELETE'])
-def load_balancer(path):
+@app.route('/<path:path>', methods=['GET', 'POST', 'PUT', 'DELETE'])
+def load_balance(path):
     global current_server
     backend_url = f"{backend_servers[current_server]}/{path}"
 
-    # This pushes the incomming request to backend servers
     if request.method == 'GET':
         response = requests.get(backend_url, params=request.args)
     elif request.method == 'POST':
